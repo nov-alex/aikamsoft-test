@@ -7,7 +7,7 @@ import lombok.Data;
  */
 @Data
 public final class Customers {
-    private Long id;
+    private Integer id;
     private String firstName;
     private String lastName;
 }

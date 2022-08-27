@@ -4,9 +4,7 @@ import lombok.Data;
 
 @Data
 public class SearchResponseDto extends BaseResponseDto {
-    SearchResponseDto() {
-        this.setType("search");
+    public SearchResponseDto() {
+        super.setType("search");
     }
-
-    
 }

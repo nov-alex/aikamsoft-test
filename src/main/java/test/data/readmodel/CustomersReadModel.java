@@ -12,5 +12,5 @@ public interface CustomersReadModel {
      * @param id идентификатор покупателя
      * @return данные по покупателю {@link Customers}
      */
-    Customers getCustomers(long id);
+    Customers getCustomer(Integer id);
 }
