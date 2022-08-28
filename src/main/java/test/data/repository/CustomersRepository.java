@@ -1,7 +1,7 @@
 package test.data.repository;
 
 import test.api.dto.response.CustomersResponseDto;
-import test.data.dto.Customers;
+import test.data.entity.Customers;
 import test.data.repository.common.CommonRepository;
 
 import java.util.List;
@@ -17,12 +17,12 @@ public interface CustomersRepository extends CommonRepository {
      * @param lastName поиск по Фамилии
      * @return список покупателей {@link Customers}
      */
-    List<CustomersResponseDto> allByLastName(String lastName);
+    List<Customers> allByLastName(String lastName);
 
     /**
      * Получить список всех покупателей по идентификатору
      * @param ids список идентификатор покупателей
      * @return список покупателей {@link Customers}
      */
-    List<CustomersResponseDto> allByIds(List<String> ids);
+    List<Customers> allByIds(List<Integer> ids);
 }

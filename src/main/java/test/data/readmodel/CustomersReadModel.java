@@ -1,6 +1,6 @@
 package test.data.readmodel;
 
-import test.data.dto.Customers;
+import test.data.entity.Customers;
 
 /**
  * Сервис работы покупателями

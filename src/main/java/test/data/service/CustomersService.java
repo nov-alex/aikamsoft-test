@@ -1,6 +1,6 @@
 package test.data.service;
 
-import test.data.dto.Customers;
+import test.data.entity.Customers;
 
 import java.util.List;
 
