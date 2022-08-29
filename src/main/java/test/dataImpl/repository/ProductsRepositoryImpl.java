@@ -1,6 +1,7 @@
 package test.dataImpl.repository;
 
 import org.springframework.stereotype.Repository;
+import test.data.entity.Customers;
 import test.data.repository.ProductsRepository;
 import test.data.repository.common.BaseRepository;
 
@@ -18,12 +19,4 @@ public final class ProductsRepositoryImpl extends BaseRepository implements Prod
         return entityManager;
     }
 
-    @Override
-    public List<Object[]> getCustomersIdsByProductName(String productName, int minTimes) {
-        return entityManager
-                .createQuery("select p.customersId,count(*) from Purchases p, Products pr where pr.productName=:productName and pr.id = p.productsId group by p.customersId HAVING COUNT(*) >=:minTimes", Object[].class)
-                .setParameter("productName", productName)
-                .setParameter("minTimes", minTimes)
-                .getResultList();
-    }
 }

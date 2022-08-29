@@ -22,15 +22,25 @@ public final class CustomersRepositoryImpl extends BaseRepository implements Cus
 
     @Override
     public List<Customers> allByLastName(String lastName) {
-        return entityManager.createQuery("select с from Customers с where last_name = :lastName", Customers.class)
+        return entityManager.createQuery("select с from Customers с where с.lastName = :lastName", Customers.class)
                 .setParameter("lastName", lastName)
                 .getResultList();
     }
 
     @Override
     public List<Customers> allByIds(List<Integer> ids) {
-        return entityManager.createQuery("select с from Customers с where id in (:ids)", Customers.class)
+        return entityManager.createQuery("select с from Customers с where с.id in (:ids)", Customers.class)
                 .setParameter("ids", ids)
                 .getResultList();
     }
+
+    @Override
+    public List<Customers> getCustomersIdsByProductNameAndCount(String productName, Long minTimes) {
+        return entityManager
+                .createQuery("select c from Purchases p join p.products pr join p.customers c where pr.productName=:productName group by c having count(c) >=:minTimes", Customers.class)
+                .setParameter("productName", productName)
+                .setParameter("minTimes", minTimes)
+                .getResultList();
+    }
+
 }

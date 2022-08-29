@@ -27,4 +27,10 @@ class CustomersRepositoryImplTest extends SpringTest {
         Assertions.assertEquals(2, customers.size());
     }
 
+    @Test
+    void givenProductNameAndCount_thenReturnList() {
+        List<Customers> customers = customersRepository.getCustomersIdsByProductNameAndCount("Хлеб", 3L);
+        Assertions.assertEquals(1, customers.size());
+    }
+
 }
