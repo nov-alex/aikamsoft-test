@@ -17,15 +17,7 @@ public interface CustomersRepository extends CommonRepository {
      * @param lastName поиск по Фамилии
      * @return список покупателей {@link Customers}
      */
-    List<Customers> allByLastName(String lastName);
-
-    /**
-     * Получить список всех покупателей по идентификатору
-     *
-     * @param ids список идентификатор покупателей
-     * @return список покупателей {@link Customers}
-     */
-    List<Customers> allByIds(List<Integer> ids);
+    List<Customers> getAllCustomersByLastName(String lastName);
 
     /**
      * Получить список покупателей по названию продукта и кол-ву
@@ -35,5 +27,24 @@ public interface CustomersRepository extends CommonRepository {
      * @param minTimes    мин кол-во покупок продукта
      * @return список покупателей {@link Products}
      */
-    List<Customers> getCustomersIdsByProductNameAndCount(String productName, Long minTimes);
+    List<Customers> getCustomersByProductNameAndCount(String productName, Integer minTimes);
+
+    /**
+     * Получить список покупателей мин и макс
+     * приобретенного продукта
+     *
+     * @param min Минимальная потраченная сумма
+     * @param max Максимальная потраченная сумма
+     * @return список покупателей {@link Customers}
+     */
+    List<Customers> getCustomersByMinMaxExpenses(Integer min, Integer max);
+
+    /**
+     * Получить список с покупателей
+     * с минимальными тратами на продукты
+     *
+     * @param maxCustomersCount Максимальное ко-во покупателей
+     * @return список покупателей {@link Customers}
+     */
+    List<Customers> getCustomersByMinExpenses(Integer maxCustomersCount);
 }

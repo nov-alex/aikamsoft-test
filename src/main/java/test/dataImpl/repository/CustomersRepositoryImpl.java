@@ -1,7 +1,6 @@
 package test.dataImpl.repository;
 
 import org.springframework.stereotype.Repository;
-import test.api.dto.response.CustomersResponseDto;
 import test.data.entity.Customers;
 import test.data.repository.CustomersRepository;
 import test.data.repository.common.BaseRepository;
@@ -21,26 +20,35 @@ public final class CustomersRepositoryImpl extends BaseRepository implements Cus
     }
 
     @Override
-    public List<Customers> allByLastName(String lastName) {
+    public List<Customers> getAllCustomersByLastName(String lastName) {
         return entityManager.createQuery("select с from Customers с where с.lastName = :lastName", Customers.class)
                 .setParameter("lastName", lastName)
                 .getResultList();
     }
 
     @Override
-    public List<Customers> allByIds(List<Integer> ids) {
-        return entityManager.createQuery("select с from Customers с where с.id in (:ids)", Customers.class)
-                .setParameter("ids", ids)
-                .getResultList();
-    }
-
-    @Override
-    public List<Customers> getCustomersIdsByProductNameAndCount(String productName, Long minTimes) {
+    public List<Customers> getCustomersByProductNameAndCount(String productName, Integer minTimes) {
         return entityManager
-                .createQuery("select c from Purchases p join p.products pr join p.customers c where pr.productName=:productName group by c having count(c) >=:minTimes", Customers.class)
+                .createQuery("select c from Purchases p join p.products pr join p.customers c where pr.productName=:productName group by c having count(c) >=cast(:minTimes as integer)", Customers.class)
                 .setParameter("productName", productName)
                 .setParameter("minTimes", minTimes)
                 .getResultList();
     }
 
+    @Override
+    public List<Customers> getCustomersByMinMaxExpenses(Integer min, Integer max) {
+        return entityManager
+                .createQuery("select c from Purchases p join p.products pr join p.customers c group by c.id having sum(pr.productPrice) >=cast(:min as integer) and sum(pr.productPrice) <= cast(:max as integer)", Customers.class)
+                .setParameter("min", min)
+                .setParameter("max", max)
+                .getResultList();
+    }
+
+    @Override
+    public List<Customers> getCustomersByMinExpenses(Integer maxCustomersCount) {
+        return entityManager
+                .createQuery("select c from Purchases p join p.products pr join p.customers c group by c.id ORDER BY sum(pr.productPrice) asc", Customers.class)
+                .setMaxResults(maxCustomersCount)
+                .getResultList();
+    }
 }

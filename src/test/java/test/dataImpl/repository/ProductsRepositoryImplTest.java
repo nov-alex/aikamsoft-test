@@ -1,19 +1,35 @@
 package test.dataImpl.repository;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import test.SpringTest;
-import test.data.entity.Customers;
+import test.data.readmodel.ProductsReadModel;
 import test.data.repository.ProductsRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 class ProductsRepositoryImplTest extends SpringTest {
 
     @Autowired
     ProductsRepository productsRepository;
+    @Autowired
+    ProductsReadModel  productsReadModel;
+    @Test
+    void givenStartAndEndDates_thenReturnList() {
+        productsReadModel.getProductsByDateIntervalDesc(
+                LocalDate.of(2022, 04, 01),
+                LocalDate.of(2022, 04, 03)
+        );
+/*
+        List<Object[]> results = productsRepository
+                .getProductsByDateIntervalDesc(
+                        LocalDate.of(2022, 04, 01),
+                        LocalDate.of(2022, 04, 03)
+                );
+        System.out.println(results);
 
-
+ */
+    }
 
 }

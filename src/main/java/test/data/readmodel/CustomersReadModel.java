@@ -1,16 +1,17 @@
 package test.data.readmodel;
 
-import test.data.entity.Customers;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Сервис работы покупателями
  */
 public interface CustomersReadModel {
-    /**
-     * Получение данных по покупателю
-     *
-     * @param id идентификатор покупателя
-     * @return данные по покупателю {@link Customers}
-     */
-    Customers getCustomer(Integer id);
+    List<Map<String, Object>> getAllCustomersByLastName(String lastName);
+
+    List<Map<String, Object>> getCustomersByProductNameAndCount(String productName, Integer minTimes);
+
+    List<Map<String, Object>> getCustomersByMinMaxExpenses(Integer min, Integer max);
+
+    List<Map<String, Object>> getCustomersByMinExpenses(Integer maxCustomersCount);
 }
