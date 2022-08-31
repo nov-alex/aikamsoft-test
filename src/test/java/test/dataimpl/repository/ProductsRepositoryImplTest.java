@@ -13,22 +13,14 @@ class ProductsRepositoryImplTest extends SpringTest {
     @Autowired
     ProductsRepository productsRepository;
     @Autowired
-    ProductsReadModel  productsReadModel;
+    ProductsReadModel productsReadModel;
+
     @Test
     void givenStartAndEndDates_thenReturnList() {
         productsReadModel.getProductsByDateIntervalDesc(
                 LocalDate.of(2022, 04, 01),
                 LocalDate.of(2022, 04, 03)
         );
-/*
-        List<Object[]> results = productsRepository
-                .getProductsByDateIntervalDesc(
-                        LocalDate.of(2022, 04, 01),
-                        LocalDate.of(2022, 04, 03)
-                );
-        System.out.println(results);
-
- */
     }
 
 }

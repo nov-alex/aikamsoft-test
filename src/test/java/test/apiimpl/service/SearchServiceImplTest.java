@@ -65,29 +65,5 @@ class SearchServiceImplTest extends SpringTest {
 
         SearchResponseDto actualDto = searchService.processSearchRequest(searchDto);
         Assertions.assertEquals(expectedDto, actualDto);
-
-
-/*
-
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            System.out.println(mapper.writeValueAsString(actualDto));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-        String json;
-        StatDto statDto;
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            json = mapper.writeValueAsString(dto);
-
-            mapper.registerModule(new JavaTimeModule());
-            mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-            String json2 = "{\"startDate\": \"2020-01-14\", \"endDate\": \"2020-01-26\"}";
-            statDto = mapper.readValue(json2, StatDto.class);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }*/
     }
 }
