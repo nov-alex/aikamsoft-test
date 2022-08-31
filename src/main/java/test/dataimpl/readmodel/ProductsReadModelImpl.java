@@ -1,4 +1,4 @@
-package test.dataImpl.readmodel;
+package test.dataimpl.readmodel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ import java.util.Map;
 public class ProductsReadModelImpl implements ProductsReadModel {
 
     @Autowired
-    ProductsRepository productsRepository;
+    private ProductsRepository productsRepository;
 
     @Override
     public StatsProductsDto getProductsByDateIntervalDesc(LocalDate startDate, LocalDate endDate) {

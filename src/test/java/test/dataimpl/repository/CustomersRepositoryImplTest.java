@@ -1,4 +1,4 @@
-package test.dataImpl.repository;
+package test.dataimpl.repository;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

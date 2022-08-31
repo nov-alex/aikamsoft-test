@@ -15,7 +15,7 @@ import static test.api.factory.OperationCode.SEARCH_BY_LASTNAME;
 public final class SearchByLastNameProvider implements SearchParameterProvider {
 
     @Autowired
-    CustomersReadModel customersReadModel;
+    private CustomersReadModel customersReadModel;
 
     @Override
     public Parameter getOperationCode() {

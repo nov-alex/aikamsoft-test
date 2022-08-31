@@ -1,7 +1,5 @@
 package test.api.factory;
 
-import com.sun.org.apache.xml.internal.serializer.SerializerTrace;
-
 import java.util.Set;
 
 /**

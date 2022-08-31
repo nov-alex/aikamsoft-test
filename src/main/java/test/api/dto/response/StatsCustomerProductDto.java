@@ -1,16 +1,17 @@
 package test.api.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Data
-public class StatsCustomerProductDto implements Serializable, Comparable<StatsCustomerProductDto> {
+@JsonIgnoreProperties(value = {"id"})
+public class StatsCustomerProductDto implements Comparable<StatsCustomerProductDto> {
 
-    private transient Integer id;
+    private Integer id;
     private String name;
     private List<Map<String, Object>> purchases;
     private Double totalExpenses;

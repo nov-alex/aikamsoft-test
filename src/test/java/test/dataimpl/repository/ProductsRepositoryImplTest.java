@@ -1,4 +1,4 @@
-package test.dataImpl.repository;
+package test.dataimpl.repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,6 @@ import test.data.readmodel.ProductsReadModel;
 import test.data.repository.ProductsRepository;
 
 import java.time.LocalDate;
-import java.util.List;
 
 class ProductsRepositoryImplTest extends SpringTest {
 

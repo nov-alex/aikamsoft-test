@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import test.api.dto.request.SearchDto;
 import test.api.dto.response.SearchResponseDto;
-import test.api.service.SearchService;
 import test.api.factory.ParameterProvider;
+import test.api.service.SearchService;
 import test.apiimpl.factory.SearchOperationProviderFactory;
 import test.exception.RequestException;
 
@@ -22,12 +22,12 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public SearchResponseDto processSearchRequest(SearchDto searchDto) throws RequestException {
         SearchResponseDto responseDto = new SearchResponseDto();
-        for (Map<String, Object> criteria : searchDto.getCriterias()){
+        for (Map<String, Object> criteria : searchDto.getCriterias()) {
             ParameterProvider provider = searchOperationProviderFactory.getParameterProvider(criteria.keySet());
             Map<String, Object> result = new HashMap<>();
             result.put("criteria", criteria);
             result.put("results", provider.get(criteria));
-            responseDto.addResults( result );
+            responseDto.addResults(result);
         }
         return responseDto;
     }

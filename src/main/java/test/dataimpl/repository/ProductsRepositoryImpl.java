@@ -1,7 +1,6 @@
-package test.dataImpl.repository;
+package test.dataimpl.repository;
 
 import org.springframework.stereotype.Repository;
-import test.data.entity.Customers;
 import test.data.repository.ProductsRepository;
 import test.data.repository.common.BaseRepository;
 

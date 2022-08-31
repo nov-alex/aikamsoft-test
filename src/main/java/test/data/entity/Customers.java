@@ -11,8 +11,6 @@ import java.util.Objects;
 /**
  * Обертка для данных по покупателям
  */
-
-
 @Getter
 @Setter
 @RequiredArgsConstructor

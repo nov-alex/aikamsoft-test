@@ -1,26 +1,22 @@
 package test.apiimpl.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import test.SpringTest;
 import test.api.dto.request.SearchDto;
 import test.api.dto.response.SearchResponseDto;
+import test.api.service.SearchService;
 
 import java.util.List;
 import java.util.Map;
 
-@ExtendWith(MockitoExtension.class)
 class SearchServiceImplTest extends SpringTest {
 
     @Autowired
-    SearchServiceImpl searchService;
+    SearchService searchService;
 
     @Test
     void givenSearchRequest_whenRequestValid_thenValidResponse() {

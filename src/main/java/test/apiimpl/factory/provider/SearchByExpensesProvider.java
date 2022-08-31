@@ -14,7 +14,7 @@ import static test.api.factory.OperationCode.SEARCH_BY_EXPENSES;
 @Component
 public final class SearchByExpensesProvider implements SearchParameterProvider {
     @Autowired
-    CustomersReadModel customersReadModel;
+    private CustomersReadModel customersReadModel;
 
     @Override
     public Parameter getOperationCode() {

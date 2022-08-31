@@ -68,6 +68,7 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: "False"
     volumes:
       - ./pgadmin:/var/lib/pgadmin
+      - ./pgadmin-migrate/pgadmin4.db:/var/lib/pgadmin/pgadmin4.db
     ports:
       - "5050:80"
     restart: unless-stopped

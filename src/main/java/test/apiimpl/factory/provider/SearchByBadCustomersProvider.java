@@ -15,7 +15,8 @@ import static test.api.factory.OperationCode.SEARCH_BY_BADCUSTOMERS;
 public final class SearchByBadCustomersProvider implements SearchParameterProvider {
 
     @Autowired
-    CustomersReadModel customersReadModel;
+    private CustomersReadModel customersReadModel;
+
     @Override
     public Parameter getOperationCode() {
         return SEARCH_BY_BADCUSTOMERS;

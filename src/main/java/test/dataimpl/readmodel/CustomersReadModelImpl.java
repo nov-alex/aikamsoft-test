@@ -1,4 +1,4 @@
-package test.dataImpl.readmodel;
+package test.dataimpl.readmodel;
 
 import com.google.common.collect.ImmutableMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.Map;
 public class CustomersReadModelImpl implements CustomersReadModel {
 
     @Autowired
-    CustomersRepository customersRepository;
+    private CustomersRepository customersRepository;
 
     @Override
     public List<Map<String, Object>> getAllCustomersByLastName(String lastName) {
